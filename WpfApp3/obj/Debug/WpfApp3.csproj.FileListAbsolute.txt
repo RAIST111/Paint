@@ -1,0 +1,16 @@
+D:\visual studio\WpfApp3\WpfApp3\bin\Debug\WpfApp3.exe.config
+D:\visual studio\WpfApp3\WpfApp3\bin\Debug\WpfApp3.exe
+D:\visual studio\WpfApp3\WpfApp3\bin\Debug\WpfApp3.pdb
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\WpfApp3.csproj.AssemblyReference.cache
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\MainWindow.g.cs
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\App.g.cs
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\WpfApp3_MarkupCompile.cache
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\WpfApp3_MarkupCompile.lref
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\MainWindow.baml
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\WpfApp3.g.resources
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\WpfApp3.Properties.Resources.resources
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\WpfApp3.csproj.GenerateResource.cache
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\WpfApp3.csproj.CoreCompileInputs.cache
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\WpfApp3.exe
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\WpfApp3.pdb
+D:\visual studio\WpfApp3\WpfApp3\obj\Debug\App.baml

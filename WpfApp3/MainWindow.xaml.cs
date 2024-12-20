@@ -49,8 +49,8 @@ namespace WpfApp3
         {
             Ellipse ellipse = new Ellipse();
             ellipse.Fill = Brushes.Gainsboro;
-            ellipse.Width = 5;
-            ellipse.Height = 5;
+            ellipse.Width = 10;
+            ellipse.Height = 10;
             Canvas.SetTop(ellipse, position.Y);
             Canvas.SetLeft(ellipse, position.X);
             CnvPaint.Children.Add(ellipse);

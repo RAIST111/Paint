@@ -22,6 +22,8 @@ namespace WpfApp3
     {
         private bool isDrawing;
         private int currentTool = 0;
+        private int size = 1;
+        private Brush color;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +31,14 @@ namespace WpfApp3
 
         private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
+
             isDrawing = true;
+            if (currentTool == 0)
+            {
+                Draw(e.GetPosition(CnvPaint));
+            }
+
+
         }
 
         private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
@@ -39,21 +48,51 @@ namespace WpfApp3
 
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDrawing) 
-            { 
-                Draw(e.GetPosition(CnvPaint));
+            if (isDrawing)
+            {
+                
+
+                if (currentTool == 0)
+                {
+                    Draw(e.GetPosition(CnvPaint));
+                }
+                if (currentTool == 1)
+                {
+                    Erase(e.GetPosition(CnvPaint));
+                }
             }
 
         }
         private void Draw(Point position)
         {
             Ellipse ellipse = new Ellipse();
-            ellipse.Fill = Brushes.Gainsboro;
-            ellipse.Width = 10;
-            ellipse.Height = 10;
-            Canvas.SetTop(ellipse, position.Y);
-            Canvas.SetLeft(ellipse, position.X);
+            ellipse.Fill = color;
+            ellipse.Width = size;
+            ellipse.Height = size;
+            Canvas.SetTop(ellipse, position.Y - ellipse.Height / 2);
+            Canvas.SetLeft(ellipse, position.X - ellipse.Width / 2);
             CnvPaint.Children.Add(ellipse);
+        }
+        private void Erase(Point position)
+        {
+            Rect erase = new Rect();
+            erase.Width = size;
+            erase.Height = size;
+
+            Point place = new Point(position.X - erase.Width / 2, position.Y - erase.Height / 2); 
+            erase.Location = place;
+            for (int i = 0; i < CnvPaint.Children.Count; i++)
+            {
+                Rect point = new Rect();
+                point.Size = CnvPaint.Children[i].RenderSize;
+                point.Location = new Point(Canvas.GetLeft(CnvPaint.Children[i]),
+                    Canvas.GetTop(CnvPaint.Children[i]));
+                if (erase.IntersectsWith(point))
+                {
+                    CnvPaint.Children.RemoveAt(i);
+                    i--;
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -67,7 +106,7 @@ namespace WpfApp3
             {
                 SliderSize.Visibility = Visibility.Visible;
                 ColorPicker.Visibility = Visibility.Visible;
-                currentTool = 1;
+                currentTool = 0;
             }
 
             if (button == BtnRubber)
@@ -84,6 +123,35 @@ namespace WpfApp3
             }
                 
             
+        }
+
+        private void SliderSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            size = (int)SliderSize.Value;
+        }
+
+        
+
+        private void ColorPicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (ColorPicker.SelectedIndex)
+            {
+                case 0:
+                    color = Brushes.Gray;
+                    break;
+                case 1:
+                    color = Brushes.Red;
+                    break;
+                    case 2:
+                    color = Brushes.Blue;
+                    break;
+                    case 3:
+                    color = Brushes.Pink;
+                    break;
+                    default:
+                    color = Brushes.Black;
+                    break;
+            }
         }
     }
 }

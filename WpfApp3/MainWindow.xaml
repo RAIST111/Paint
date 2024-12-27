@@ -9,20 +9,21 @@
     <Grid>
         <Canvas Background="White" MouseDown="Canvas_MouseDown" MouseUp="Canvas_MouseUp" MouseMove="Canvas_MouseMove" Name="CnvPaint"/>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <Slider Width="100" Minimum="1" Maximum="5" TickFrequency="1" 
-                    IsSnapToTickEnabled="True" Margin="0 0 10 0" VerticalAlignment="Center" Name="SliderSize"/>
-            <Button Name ="BtnPencil" Width="30" Height="30" BorderBrush="Transparent" Margin="0 0 10 0" Click="Button_Click">
+            <Slider Width="100" Minimum="1" Maximum="10" TickFrequency="1" 
+                    IsSnapToTickEnabled="True" Margin="0 0 10 0" VerticalAlignment="Center" Name="SliderSize" ValueChanged="SliderSize_ValueChanged"/>
+            <Button Name ="BtnPencil" Width="30" Height="30" BorderBrush="Transparent" Margin="0 0 10 0" Click="Button_Click" Background="Yellow">
                 <Image Source="{StaticResource PencilIcon}" />
             </Button>
             <Button Name ="BtnRubber" Width="30" Height="30"    
-                    BorderBrush="Transparent" Margin="0 0 10 0" Click="Button_Click" Background="Yellow">
+                    BorderBrush="Transparent" Margin="0 0 10 0" Click="Button_Click" >
                 <Image Source="{StaticResource RubberIcon}" />
             </Button>
             <Button Name ="BtnDrip" Width="30" Height="30" BorderBrush="Transparent" Margin="0 0 10 0" Click="Button_Click" >
                 <Image Source="{StaticResource DripIcon}" />
             </Button>
             <ComboBox  Width="100 " Height="25" SelectedIndex="0" 
-                      VerticalAlignment="Center" HorizontalAlignment="Center" Name="ColorPicker">
+                      VerticalAlignment="Center" HorizontalAlignment="Center" Name="ColorPicker" 
+                        SelectionChanged="ColorPicker_SelectionChanged">
                 <ComboBoxItem Content="Black" Background="White"/>
                 <ComboBoxItem Content="Red" Background="Red"/>
                 <ComboBoxItem Content="Blue" Background="Blue"/>
